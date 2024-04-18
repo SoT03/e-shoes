@@ -1,5 +1,14 @@
-import { Button } from '@/components/ui/button';
+'use client';
+
+import Modal from '@/components/ui/modal';
+
 
 export default function SetupPage() {
-	return <div>Not allowed</div>;
+	return (
+		<div className='p-4'>
+			<Modal isOpen onClose={() => {}} title='Title' description='desc'>
+				Children
+			</Modal>
+		</div>
+	);
 }
