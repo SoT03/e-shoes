@@ -2,10 +2,9 @@
 
 import Modal from '@/components/ui/modal';
 
-
 export default function SetupPage() {
 	return (
-		<div className='p-4'>
+		<div className='p-4 '>
 			<Modal isOpen onClose={() => {}} title='Title' description='desc'>
 				Children
 			</Modal>
