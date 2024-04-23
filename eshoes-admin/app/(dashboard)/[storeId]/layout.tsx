@@ -1,5 +1,3 @@
-'use client';
-
 import { Navbar } from '@/components/navbar';
 import prismadb from '@/lib/prismadb';
 import { auth } from '@clerk/nextjs';
