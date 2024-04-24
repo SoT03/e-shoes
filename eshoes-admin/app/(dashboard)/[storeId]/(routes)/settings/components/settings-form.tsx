@@ -21,6 +21,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import AlertModal from '@/components/modals/alert-modal';
+import ApiAlert from '@/components/ui/api-alert';
 
 interface SettingsFormProps {
 	initialData: Store;
@@ -122,6 +123,8 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
 					</Button>
 				</form>
 			</Form>
+			<Separator />
+			<ApiAlert title='NEXT_PUBLIC_API_URL' description='XD-desc' variant='public' />
 		</>
 	);
 }
