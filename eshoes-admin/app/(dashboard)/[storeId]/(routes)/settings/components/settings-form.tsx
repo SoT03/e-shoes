@@ -14,6 +14,7 @@ import {
 	FormField,
 	FormItem,
 	FormLabel,
+	FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
@@ -44,7 +45,13 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
 		<>
 			<div className='flex items-center justify-between'>
 				<Heading title='Settings' description='Manage store preferences' />
-				<Button variant='destructive' size='icon' onClick={() => {}}>
+				<Button
+					variant='destructive'
+					size='icon'
+					onClick={() => {
+						() => setOpen(true);
+					}}
+					disabled={loading}>
 					<Trash className='h-4 w-4' />
 				</Button>
 			</div>
@@ -67,10 +74,14 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
 											{...field}
 										/>
 									</FormControl>
+									<FormMessage />
 								</FormItem>
 							)}
 						/>
 					</div>
+					<Button disabled={loading} className='ml-auto' type='submit'>
+						Save changes
+					</Button>
 				</form>
 			</Form>
 		</>
