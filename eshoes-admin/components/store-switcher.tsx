@@ -69,7 +69,7 @@ export default function StoreSwitcher({
 					role='combobox'
 					aria-expanded={open}
 					aria-label='Select a store'
-					className={(cn('w-[200px] justify-between'), className)}>
+					className={cn('w-[200px] justify-between', className)}>
 					<StoreIcon className='mr-2 h-4 w-4' />
 					{currentStore?.label}
 					<ChevronsUpDown className='ml-auto h-4 w-4 shrink-0 opacity-50' />
@@ -86,14 +86,15 @@ export default function StoreSwitcher({
 									key={store.value}
 									onSelect={() => onStoreSelect(store)}
 									className='text-sm'>
-									<StoreIcon className='mr-2 h-4 w-4' />
+									<StoreIcon className='mr-2 h-4 w-4 ' />
+									{store.label}
 									<Check
-										className={
-											(cn('ml-auto h-4 w-4'),
+										className={cn(
+											'ml-auto h-4 w-4',
 											currentStore?.value === store.value
 												? 'opacity-100'
-												: 'opacity-0')
-										}
+												: 'opacity-0'
+										)}
 									/>
 								</CommandItem>
 							))}
@@ -104,10 +105,10 @@ export default function StoreSwitcher({
 						<CommandGroup>
 							<CommandItem
 								onSelect={() => {
-									setOpen(false);
 									storeModal.onOpen();
+									setOpen(false);
 								}}>
-								<PlusCircle className='mr-2 h-5 w-5' />
+								<PlusCircle className='mr-2 h-5 w-5 ' />
 								Create Store
 							</CommandItem>
 						</CommandGroup>
