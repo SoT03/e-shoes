@@ -29,7 +29,7 @@ export default function ImageUpload({
 	}
 
 	const onUpload = (result: any) => {
-		onChange(result.info.secure_url);
+		onChange(result.info.url);
 	};
 
 	return (
@@ -52,19 +52,16 @@ export default function ImageUpload({
 					</div>
 				))}
 			</div>
-			<CldUploadWidget onUploadAdded={onUpload} uploadPreset='hum7cf5l'>
+			<CldUploadWidget onSuccess={onUpload} uploadPreset='hum7cf5l'>
 				{({ open }) => {
-					const onClick = () => {
-						open();
-					};
-
 					return (
 						<Button
 							type='button'
 							disabled={disabled}
 							variant='secondary'
-							onClick={onClick}>
+							onClick={() => open()}>
 							<ImagePlus className='w-4 h-4 mr-2' />
+							Upload an Image
 						</Button>
 					);
 				}}
