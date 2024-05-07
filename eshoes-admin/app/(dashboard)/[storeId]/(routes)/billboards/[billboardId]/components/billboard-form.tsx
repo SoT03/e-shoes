@@ -21,8 +21,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import AlertModal from '@/components/modals/alert-modal';
-import ApiAlert from '@/components/ui/api-alert';
-import useOrigin from '@/hooks/use-origin';
+
 import ImageUpload from '@/components/ui/image-upload';
 
 interface BillboardFormProps {
@@ -39,7 +38,7 @@ type BillboardFormValues = z.infer<typeof formSchema>;
 export default function BillboardForm({ initialData }: BillboardFormProps) {
 	const [open, setOpen] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const origin = useOrigin();
+
 	const params = useParams();
 	const router = useRouter();
 
@@ -84,7 +83,7 @@ export default function BillboardForm({ initialData }: BillboardFormProps) {
 				`/api/${params.storeId}/billboards/${params.billboardId}`
 			);
 			router.refresh();
-			router.push('/');
+			router.push(`/${params.storeId}/billboards`);
 			toast.success('Billboard deleted.');
 		} catch (error) {
 			toast.error('Make sure you removed all categories using this billboard');
