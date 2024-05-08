@@ -30,7 +30,7 @@ export default function ApiList({ entityIdName, entityName }: ApiListProps) {
 			<ApiAlert
 				title='POST'
 				variant='admin'
-				description={`${baseUrl}/${entityName}}`}
+				description={`${baseUrl}/{${entityName}}`}
 			/>
 			<ApiAlert
 				title='PATCH'
