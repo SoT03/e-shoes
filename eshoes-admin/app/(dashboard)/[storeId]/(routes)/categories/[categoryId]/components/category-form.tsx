@@ -21,6 +21,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import AlertModal from '@/components/modals/alert-modal';
+import { Select, SelectContent, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface CategoryFormProps {
 	initialData: Category | null;
@@ -131,6 +132,35 @@ export default function CategoryForm({ initialData }: CategoryFormProps) {
 											placeholder='Category name'
 											{...field}
 										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='billboardId'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Billboard</FormLabel>
+									<FormControl>
+										<Select
+											disabled={loading}
+											onValueChange={field.onChange}
+											value={field.value}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue
+														defaultValue={field.value}
+														aria-placeholder='Select a billboard'
+													/>
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												
+											</SelectContent>
+										</Select>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
