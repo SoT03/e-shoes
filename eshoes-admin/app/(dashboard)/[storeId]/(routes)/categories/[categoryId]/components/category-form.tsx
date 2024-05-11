@@ -92,8 +92,8 @@ export default function CategoryForm({
 			await axios.delete(
 				`/api/${params.storeId}/categories/${params.categoryId}`
 			);
-			router.refresh();
 			router.push(`/${params.storeId}/categories`);
+			router.refresh();
 			toast.success('Category deleted.');
 		} catch (error) {
 			toast.error('Make sure you removed all products using this category');
