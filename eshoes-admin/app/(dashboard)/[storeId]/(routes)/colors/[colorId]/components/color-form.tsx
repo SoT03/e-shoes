@@ -22,14 +22,16 @@ import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import AlertModal from '@/components/modals/alert-modal';
 
-
 interface ColorFormProps {
 	initialData: Color | null;
 }
 
 const formSchema = z.object({
 	name: z.string().min(1),
-	value: z.string().min(1),
+	value: z
+		.string()
+		.min(4)
+		.regex(/^#/, { message: 'String must be a valid hex code' }),
 });
 
 type ColorFormValues = z.infer<typeof formSchema>;
@@ -79,12 +81,12 @@ export default function ColorForm({ initialData }: ColorFormProps) {
 		try {
 			setLoading(true);
 
-			await axios.delete(`/api/${params.storeId}/colors/${params.billboardId}`);
+			await axios.delete(`/api/${params.storeId}/colors/${params.colorId}`);
 			router.refresh();
 			router.push(`/${params.storeId}/colors`);
-			toast.success('Billboard deleted.');
+			toast.success('Color deleted.');
 		} catch (error) {
-			toast.error('Make sure you removed all products using this color');
+			toast.error('Make sure you removed all products using this color first');
 		} finally {
 			setLoading(false);
 			setOpen(false);
@@ -128,7 +130,7 @@ export default function ColorForm({ initialData }: ColorFormProps) {
 									<FormControl>
 										<Input
 											disabled={loading}
-											placeholder='Size name'
+											placeholder='Color name'
 											{...field}
 										/>
 									</FormControl>
@@ -143,11 +145,17 @@ export default function ColorForm({ initialData }: ColorFormProps) {
 								<FormItem>
 									<FormLabel>Value</FormLabel>
 									<FormControl>
-										<Input
-											disabled={loading}
-											placeholder='Size value'
-											{...field}
-										/>
+										<div className='flex items-center gap-x-4'>
+											<Input
+												disabled={loading}
+												placeholder='Color value'
+												{...field}
+											/>
+											<div
+												className='border p-4 rounded-full'
+												style={{ backgroundColor: field.value }}
+											/>
+										</div>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
