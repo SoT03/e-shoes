@@ -3,7 +3,7 @@ import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import Heading from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
-import { Category, Color, Image, Product } from '@prisma/client';
+import { Category, Color, Image, Product, Size } from '@prisma/client';
 import { Trash } from 'lucide-react';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -11,6 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
 	Form,
 	FormControl,
+	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -25,11 +26,12 @@ import AlertModal from '@/components/modals/alert-modal';
 import ImageUpload from '@/components/ui/image-upload';
 import {
 	Select,
-	SelectTrigger,
-	SelectValue,
 	SelectContent,
 	SelectItem,
-} from '@radix-ui/react-select';
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 
 interface ProductFormProps {
 	initialData:
@@ -217,7 +219,7 @@ export default function ProductForm({
 							name='categoryId'
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Billboard</FormLabel>
+									<FormLabel>Category</FormLabel>
 									<FormControl>
 										<Select
 											disabled={loading}
@@ -228,7 +230,7 @@ export default function ProductForm({
 												<SelectTrigger>
 													<SelectValue
 														defaultValue={field.value}
-														aria-placeholder='Select a billboard'
+														aria-placeholder='Select a category'
 													/>
 												</SelectTrigger>
 											</FormControl>
@@ -242,6 +244,112 @@ export default function ProductForm({
 										</Select>
 									</FormControl>
 									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='sizeId'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Size</FormLabel>
+									<FormControl>
+										<Select
+											disabled={loading}
+											onValueChange={field.onChange}
+											value={field.value}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue
+														defaultValue={field.value}
+														aria-placeholder='Select a size'
+													/>
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{sizes.map((size) => (
+													<SelectItem key={size.id} value={size.id}>
+														{size.name}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='colorId'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Color</FormLabel>
+									<FormControl>
+										<Select
+											disabled={loading}
+											onValueChange={field.onChange}
+											value={field.value}
+											defaultValue={field.value}>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue
+														defaultValue={field.value}
+														aria-placeholder='Select a color'
+													/>
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												{colors.map((color) => (
+													<SelectItem key={color.id} value={color.id}>
+														{color.name}
+													</SelectItem>
+												))}
+											</SelectContent>
+										</Select>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='isFeatured'
+							render={({ field }) => (
+								<FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4'>
+									<FormControl>
+										<Checkbox
+											checked={field.value}
+											onCheckedChange={field.onChange}
+										/>
+									</FormControl>
+									<div className='space-y-1 leading-none'>
+										<FormLabel>Featured</FormLabel>
+										<FormDescription>
+											This product will appear on the home page
+										</FormDescription>
+									</div>
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='isArchived'
+							render={({ field }) => (
+								<FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4'>
+									<FormControl>
+										<Checkbox
+											checked={field.value}
+											onCheckedChange={field.onChange}
+										/>
+									</FormControl>
+									<div className='space-y-1 leading-none'>
+										<FormLabel>Archived</FormLabel>
+										<FormDescription>
+											This product will not appear anywhere in the store
+										</FormDescription>
+									</div>
 								</FormItem>
 							)}
 						/>
