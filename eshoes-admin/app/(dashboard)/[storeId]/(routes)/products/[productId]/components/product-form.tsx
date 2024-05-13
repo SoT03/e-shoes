@@ -120,7 +120,7 @@ export default function ProductForm({
 			router.push(`/${params.storeId}/products`);
 			toast.success('Product deleted.');
 		} catch (error) {
-			toast.error('Make sure you removed all categories using this billboard');
+			toast.error('Something went wrong.');
 		} finally {
 			setLoading(false);
 			setOpen(false);
