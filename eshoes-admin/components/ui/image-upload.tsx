@@ -52,7 +52,7 @@ export default function ImageUpload({
 					</div>
 				))}
 			</div>
-			<CldUploadWidget onSuccess={onUpload} uploadPreset='hum7cf5l'>
+			<CldUploadWidget onUpload={onUpload} uploadPreset='hum7cf5l'>
 				{({ open }) => {
 					return (
 						<Button
