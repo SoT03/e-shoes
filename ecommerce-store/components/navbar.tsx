@@ -2,8 +2,12 @@ import React from 'react';
 import Container from './ui/container';
 import Link from 'next/link';
 import MainNav from './main-nav';
+import getCategories from '@/actions/get-categories';
 
-export default function Navbar() {
+export default async function Navbar() {
+	const categories = await getCategories();
+	
+
 	return (
 		<div className='border-b'>
 			<Container>
@@ -11,7 +15,7 @@ export default function Navbar() {
 					<Link href='/' className='ml-4 flex lg:ml-0 gap-x-2'>
 						<p className='font-bold text-xl uppercase'>Store</p>
 					</Link>
-					<MainNav data={[]}/>
+					<MainNav data={categories} />
 				</div>
 			</Container>
 		</div>
