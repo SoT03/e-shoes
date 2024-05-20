@@ -17,8 +17,6 @@ export async function PATCH(
 			return new NextResponse('Unauthenticated', { status: 401 });
 		}
 
-		
-
 		if (!label) {
 			return new NextResponse('Label is required', { status: 400 });
 		}
@@ -98,7 +96,7 @@ export async function GET(
 			return new NextResponse('Billboard id is required', { status: 400 });
 		}
 
-		const billboard = await prismadb.store.findUnique({
+		const billboard = await prismadb.billboard.findUnique({
 			where: { id: params.billboardId },
 		});
 
