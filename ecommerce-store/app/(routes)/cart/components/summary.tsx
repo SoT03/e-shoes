@@ -15,11 +15,10 @@ export default function Summary() {
 	useEffect(() => {
 		if (searchParams.get('success')) {
 			toast.success('Payment completed.');
-			removeAll;
+			removeAll();
 		}
-		if (searchParams.get('cancled')) {
+		if (searchParams.get('canceled')) {
 			toast.error('Something went wrong');
-			removeAll;
 		}
 	}, [searchParams, removeAll]);
 

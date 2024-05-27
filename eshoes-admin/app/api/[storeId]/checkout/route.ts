@@ -18,7 +18,7 @@ export async function POST(
 ) {
 	const { productIds } = await req.json();
 
-	if (!productIds || productIds === 0) {
+	if (!productIds || productIds.length === 0) {
 		return new NextResponse('Product ids are required', { status: 400 });
 	}
 
@@ -69,11 +69,13 @@ export async function POST(
 			enabled: true,
 		},
 		success_url: `${process.env.FRONTEND_STORE_URL}/cart?success=1`,
-		cancel_url: `${process.env.FRONTEND_STORE_URL}/cart?cancled=1`,
+		cancel_url: `${process.env.FRONTEND_STORE_URL}/cart?canceled=1`,
 		metadata: {
 			orderId: order.id,
 		},
 	});
+
+	console.log(order.id);
 
 	return NextResponse.json(
 		{ url: session.url },
