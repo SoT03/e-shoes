@@ -3,7 +3,7 @@ import React from 'react';
 import ProductClient from './components/client';
 import prismadb from '@/lib/prismadb';
 import { ProductColumn } from './components/columns';
-import { foramtter } from '@/lib/utils';
+import { formatter } from '@/lib/utils';
 
 export default async function ProductsPage({
 	params,
@@ -25,14 +25,12 @@ export default async function ProductsPage({
 		name: item.name,
 		isFeatured: item.isFeatured,
 		isArchived: item.isArchived,
-		price: foramtter.format(item.price.toNumber()),
+		price: formatter.format(item.price.toNumber()),
 		category: item.category.name,
 		size: item.size.name,
 		color: item.color.value,
 		createdAt: format(item.createdAt, 'MMMM do, yyyy'),
 	}));
-
-	
 
 	return (
 		<div className='flex-col '>

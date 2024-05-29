@@ -3,7 +3,7 @@ import React from 'react';
 
 import prismadb from '@/lib/prismadb';
 import { OrderColumn } from './components/columns';
-import { foramtter } from '@/lib/utils';
+import { formatter } from '@/lib/utils';
 import OrderClient from './components/client';
 
 export default async function OrdersPage({
@@ -34,7 +34,7 @@ export default async function OrdersPage({
 		products: item.orderItems
 			.map((orderItem) => orderItem.product.name)
 			.join(', '),
-		totalPrice: foramtter.format(
+		totalPrice: formatter.format(
 			item.orderItems.reduce((total, item) => {
 				return total + Number(item.product.price);
 			}, 0)
