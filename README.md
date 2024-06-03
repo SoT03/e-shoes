@@ -1,5 +1,17 @@
 # E-shop
 E-Shop is a comprehensive full-stack project designed to streamline the management of your shop through an intuitive and user-friendly dashboard. This application enables shop owners to handle various aspects of their business efficiently, including inventory management, order processing, and sales tracking.
 ## Technologies used
-### Front-end
-<p align="left"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Next.js</title><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg></p>
+<p align="left"><img src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/5f8c622c-c217-4649-b0a9-7e0ee24bd704" alt="Next js" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="Type Script" width="40" height="40"/>
+  <img src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind" width="40" height="40"/> </p>
+  
+## Also used
+Database: Supabase with prismadb package
+
+Payments: Stripe
+
+## How to run
+```
+Setup up your local variables
+
+```
