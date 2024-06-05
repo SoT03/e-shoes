@@ -9,8 +9,6 @@ export default function CartPage() {
 	const [isMounted, setIsMounted] = useState(false);
 	const cart = useCart();
 
-	console.log(cart.items);
-
 	useEffect(() => {
 		setIsMounted(true);
 	}, []);
