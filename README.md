@@ -10,7 +10,16 @@ Database: Supabase with prismadb package
 Payments: Stripe
 
 ## How to run
-Add your admin env file
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+3.Add your admin env file
 ```js
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
@@ -28,9 +37,18 @@ STRIPE_API_KEY =
 FRONTEND_STORE_URL=http://localhost:3001
 STRIPE_WEBHOOK_SECRET=
 ```
-Add your shop env file
+4.Add your shop env file
 ```js
 NEXT_PUBLIC_API_URL=http://localhost:3000/api/{id of your shop}
 ```
-You need to configure stripe for payments by adding listener for localhost https://stripe.com/en-pl
+5. Start you admin folder then your shop folder
+ ```sh
+   npm run dev
+   ```
+
+
+
+
+
+6.You need to configure stripe for payments by adding listener for localhost https://stripe.com/en-pl
 
