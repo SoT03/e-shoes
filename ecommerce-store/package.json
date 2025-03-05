@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "engines": {
+    "node": "18.2"
+  },
   },
   "dependencies": {
     "@headlessui/react": "^2.0.3",
