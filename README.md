@@ -15,3 +15,8 @@ Payments: Stripe
 Setup up your local variables
 
 ```
+# In both folders use
+```
+npm run dev 
+
+```
