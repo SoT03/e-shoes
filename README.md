@@ -1,22 +1,81 @@
-# E-shop
-E-Shop is a comprehensive full-stack project designed to streamline the management of your shop through an intuitive and user-friendly dashboard. This application enables shop owners to handle various aspects of their business efficiently, including inventory management, order processing, and sales tracking.
-## Technologies used
-<p align="left"><img src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/5f8c622c-c217-4649-b0a9-7e0ee24bd704" alt="Next js" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="Type Script" width="40" height="40"/>
-  <img src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind" width="40" height="40"/> </p>
-  
-## Also used
-Database: Supabase with prismadb package
+# E-Shoes Backend
 
-Payments: Stripe
+## Overview
+E-Shoes is an e-commerce backend built using modern technologies to provide a seamless experience for managing products, users, and transactions. This repository serves as the backend for the E-Shoes application.
 
-## How to run
-```
-Setup up your local variables
+## Features
+- User authentication and authorization via Clerk
+- Database management with PostgreSQL (hosted on Supabase)
+- Cloud-based media storage with Cloudinary
+- Payment processing via Stripe
 
-```
-# In both folders use
-```
-npm run dev 
+## Environment Variables
+To run this project, you need to set up the following environment variables:
 
+### Clerk Authentication
 ```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
+CLERK_SECRET_KEY=your_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+```
+
+### Database Configuration
+```
+DATABASE_URL='your_database_url'
+DIRECT_URL='your_direct_database_url'
+```
+
+### Cloudinary Configuration
+```
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
+```
+
+### Stripe Payment Gateway
+```
+STRIPE_API_KEY=your_stripe_api_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+```
+
+### Frontend Configuration
+```
+FRONTEND_STORE_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3000/api/your_backend_api_key
+```
+
+## Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/SoT03/e-shoes.git
+   ```
+2. Navigate to the backend directory:
+   ```sh
+   cd e-shoes
+   ```
+3. Install dependencies for both frontend and backend:
+   ```sh
+   npm install
+   ```
+4. Set up your `.env` file with the required environment variables.
+5. Run the backend:
+   ```sh
+   npm run dev
+   ```
+6. Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+7. Install frontend dependencies:
+   ```sh
+   npm install
+   ```
+8. Run the frontend:
+   ```sh
+   npm run dev
+   ```
+
+
+
+
